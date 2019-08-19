@@ -33,7 +33,7 @@ function my_var_dump()
                 echo 'UNKNOWN TYPE';
                 break;
         }
-        echo "\r\n";
+        echo PHP_EOL;
     }
 }
 
@@ -46,16 +46,16 @@ function dump_string($param)
 function dump_array($param)
 {
     $len = count($param);
-    echo "array($len) {\r\n";
+    echo "array($len) {" . PHP_EOL;
     foreach ($param as $key => $val) {
         if (is_array($val)) {
             dump_array($val);
         } else {
             echo sprintf('["%s"] => %s(%s)', $key, gettype($val), $val);
         }
-        echo "\r\n";
+        echo PHP_EOL;
     }
-    echo "}\r\n";
+    echo "}" . PHP_EOL;
 }
 
 function dump_object($param)
@@ -63,7 +63,8 @@ function dump_object($param)
     $className = get_class($param);
     $class = new ReflectionClass($param);
     $props = $class->getDefaultProperties();
-    echo sprintf("Object %s #1(%d) {\r\n", $className, count($props));
+    echo sprintf("Object %s #1(%d) {", $className, count($props));
+    echo PHP_EOL;
     foreach ($props as $key => $val) {
         $prop = new ReflectionProperty($className, $key);
         $access = $prop->isPublic() ? "public" : ($prop->isProtected() ? "protected" : ($prop->isPrivate() ? "private" : ""));
@@ -73,7 +74,7 @@ function dump_object($param)
         $val = $prop->getValue($param) ? : $val;
         echo "[\"$key:$access\"] => ";
         my_var_dump($val);
-        echo "\r\n";
+        echo PHP_EOL;
     }
     echo "}";
 }
@@ -81,14 +82,14 @@ function dump_object($param)
 // 打印字符串变量
 $name = "学院君";
 my_var_dump($name);
-echo "\r\n";
+echo PHP_EOL;
 // 答应数组变量
 $arr = [
     "Laravel 学院",
     "url" => "https://laravelacademy.org"
 ];
 my_var_dump($arr);
-echo "\r\n";
+echo PHP_EOL;
 // 打印对象变量
 class MyTestClass 
 {
@@ -104,6 +105,6 @@ class MyTestClass
 }
 $obj = new MyTestClass($name);
 my_var_dump($obj);
-echo "\r\n";
+echo PHP_EOL;
 // 依次打印多个变量
 my_var_dump(1, true, null); 
