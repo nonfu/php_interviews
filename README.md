@@ -1,6 +1,6 @@
 ### PHP 面试题代码
 
-PHP 面试题每日分享，欢迎入群与大家一起交流：
+PHP 面试题每日一更，欢迎入群与大家一起交流（Github 项目主要用作维护示例代码，不会更新每个问题的答案）：
 
 ![学院君和他的朋友们](https://qcdn.xueyuanjun.com/wp-content/uploads/2019/06/18497668d7164a1498438a59bdb8f4ae.jpeg)
 
@@ -21,3 +21,5 @@ PHP 面试题每日分享，欢迎入群与大家一起交流：
 5、`require`、`include`、`require_once`、`include_once` 它们各自的用途是什么？有什么区别？如果某个业务需要按需加载 PHP 文件，你会怎么设计和实现？
 
 6、对于熟练使用 Laravel 框架的同学来说，对 Composer 肯定不陌生，我们在 Laravel 框架中无论使用辅助函数还是通过命名空间管理的类，都不会涉及到类和文件的加载操作，但实际上这个工作是  Composer 这个大管家在底层默默帮我们完成的，今天的问题是，有多少同学知道 Composer 底层是如何实现 PHP 命名空间与目录的映射，以及类和文件的按需加载的？
+
+[参考答案](https://laravelacademy.org/post/19890.html)
