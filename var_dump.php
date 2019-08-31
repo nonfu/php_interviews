@@ -63,7 +63,7 @@ function dump_object($param)
     $className = get_class($param);
     $class = new ReflectionClass($param);
     $props = $class->getDefaultProperties();
-    echo sprintf("Object %s #1(%d) {", $className, count($props));
+    echo sprintf("Object %s #" . spl_object_id($param) . "(%d) {", $className, count($props));
     echo PHP_EOL;
     foreach ($props as $key => $val) {
         $prop = new ReflectionProperty($className, $key);
