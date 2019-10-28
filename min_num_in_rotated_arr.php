@@ -16,8 +16,8 @@ function findMinNum(array $numbers)
         throw new Exception('无效参数');
     }
 
-    $left = 0;   // 左指针
-    $mid = $right = count($numbers) - 1;  // 右指针
+    $mid = $left = 0;   // 左指针，中间元素初始指向左指针是为了应付递增数组这种特殊情况
+    $right = count($numbers) - 1;  // 右指针
     while ($numbers[$left] >= $numbers[$right]) {
         // 当左右指针相邻，循环终止，右侧指针指向的就是最小元素
         if ($right - $left == 1) {
@@ -38,5 +38,5 @@ function findMinNum(array $numbers)
     return $numbers[$mid];
 }
 
-$numbers = [3, 4, 5, 1, 2];
+$numbers = [5, 1, 2, 3, 4];
 var_dump(findMinNum($numbers));
