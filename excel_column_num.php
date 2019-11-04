@@ -17,8 +17,10 @@ function convertExcelColumnAlphaToDecimal(string $column)
     rsort($alphaArr);   // 对字母数组逆向排序，方便计算对应十进制数字
     $decimal = 0;
     foreach ($alphaArr as $index => $alpha) {
-        $num = ord($alpha) - 64;  // 大写字母对应 ASCII 码从 65 开始，而此处映射的数字从 1 开始，所以减去 64 得到对应的十进制数字
-        $decimal += $num * pow($base, $index);  // 将当前位置的字母转化为对应的十进制数值，进制是26，类比十进制，256 = 2*10^2 + 5*10^1 + 6*10^0
+        // 大写字母对应 ASCII 码从 65 开始，而此处映射的数字从 1 开始，所以减去 64 得到对应的十进制数字
+        $num = ord($alpha) - 64;
+        // 将当前位置的字母转化为对应的十进制数值，进制是26，类比十进制，256 = 2*10^2 + 5*10^1 + 6*10^0
+        $decimal += $num * pow($base, $index);
     }
     return $decimal;
 }
