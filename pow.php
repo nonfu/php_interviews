@@ -32,7 +32,7 @@ function pow_v2(float $num, int $exp): float
         return 0;
     }
 
-    $result = pow_v11($num, abs($exp));
+    $result = pow_v1($num, abs($exp));
 
     // 负次方需要求倒数
     if ($exp < 0) {
