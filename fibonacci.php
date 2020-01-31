@@ -19,7 +19,7 @@ function method_1(int $n): int
     if ($n == 1) {
         return 1;
     }
-    return method_1($n -1 ) + method_1($n - 2);
+    return method_1($n - 1 ) + method_1($n - 2);
 }
 
 /**
